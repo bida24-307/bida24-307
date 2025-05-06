@@ -1,0 +1,577 @@
+/* ========== GLOBAL STYLES & RESET ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: #000; /* Setting default text color to #000 based on overrides */
+    background: #fff;
+    /* Add this to prevent scrolling when mobile menu is open - needs JS toggling a class on body */
+    /* body.no-scroll { overflow: hidden; } */
+}
+
+/* ========== BRAND COLOR ACCENTS (VARIABLES) ========== */
+:root {
+    --brand: #43edff;
+    --dark-brand: #31c7d8;
+}
+
+/* ========== UTILITY CLASSES ========== */
+.section-padding { padding: 4rem 1rem; }
+.bg-light { background: #f9f9f9; }
+
+/* Container for centering content */
+.container {
+    max-width: 1100px; /* Adjust max-width as needed for your design */
+    margin: 0 auto; /* Centers the container */
+    padding: 0 1rem; /* Adds padding on the sides */
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+/* ========== NAVIGATION ========== */
+.main-nav {
+    background: #fff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between; /* Space between logo and nav-container/hamburger */
+    align-items: center;
+}
+
+.nav-logo img {
+    height: 60px; /* Default desktop height */
+    width: auto;
+    transition: transform 0.3s ease; /* Added transition */
+}
+
+/* Desktop: Ensure nav-menu and nav-call are displayed horizontally */
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* Space between menu and call button */
+}
+
+.nav-menu {
+    display: flex; /* Show on desktop */
+    gap: 2rem; /* Space between menu items */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--brand);
+}
+
+/* Added style for the active nav link */
+.nav-link--active {
+    color: var(--brand);
+    /* Add underline or other active state styling if desired */
+    /* text-decoration: underline; */
+}
+
+
+/* Modified: Re-added flex properties for icon alignment */
+.nav-call {
+    background: var(--brand);
+    color: #333 !important;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+.nav-call:hover {
+    background: var(--dark-brand);
+}
+
+
+/* Styles for the hamburger button (Hidden by default on desktop) */
+/* -> START New Hamburger Base Styles <- */
+.hamburger {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001; /* Ensure it's above the mobile menu overlay */
+}
+
+.hamburger-icon {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #000; /* Color of the lines */
+    margin: 5px 0; /* Space between lines */
+    transition: all 0.3s ease;
+}
+
+/* Optional: Animation for the hamburger icon when active */
+.hamburger.is-active .hamburger-icon:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.is-active .hamburger-icon:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.is-active .hamburger-icon:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+/* -> END New Hamburger Base Styles <- */
+
+
+/* ========== BUTTON STYLES (Corrected) ========== */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    /* -> Corrected: Added background and color <- */
+    background: var(--brand);
+    color: #000; /* You might want this to be #fff depending on your design */
+    border: 2px solid var(--brand);
+}
+
+.btn-primary:hover {
+    background: var(--dark-brand);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(67,237,255,0.3);
+}
+/* -> END BUTTON STYLES (Corrected) <- */
+
+
+/* The rest of the desktop styles are here */
+/* ... (Hero, About Index, About Us Page, Services, Portfolio, Blog, Video, Testimonials, CTA, Contact, Footer) ... */
+
+/* ========== HERO SECTION (Static Image) ========== */
+/* Styles for the hero header with parallax effect */
+.hero {
+    position: relative;
+    height: 600px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url("../images/hero-bg-1.jpg") center/cover;
+    background-attachment: fixed; /* Property for parallax effect */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+    /* Keep any other existing styles for .hero that you had */
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    color: inherit;
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1,
+.hero-content .hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    color: inherit;
+}
+
+.hero p,
+.hero-content .hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    color: inherit;
+}
+
+.hero-cta {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.hero-cta .btn img {
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+
+/* ========== ABOUT SECTION (Index Page) ========== */
+/* Styles for the About section on the Index page */
+.about-section {
+    /* Ensure this section has top/bottom padding, potentially using section-padding */
+}
+
+.about-content h2 { font-size: 2rem; margin-bottom: 1.5rem; }
+/* Note: .about-content p styles might need to be added here if they were removed */
+/* Styles for the .certifications list (used on Index About and About Us Page) */
+.certifications { margin: 1.5rem auto; list-style: none; padding: 0; max-width: 800px; }
+.certifications li { margin: 0.8rem 0; padding-left: 1.5rem; position: relative; font-size: 1.1rem; color: #333; }
+.certifications li::before { content: "✓"; position: absolute; left: 0; color: var(--brand); }
+/* Note: .about-image may need responsive adjustments within grid in media query if not already handled */
+
+
+/* ========== ABOUT US PAGE SPECIFIC STYLES ========== */
+/* Styles for the About Us page (single column layout) */
+.about-page-section {
+    /* Ensure this section has top/bottom padding, potentially using section-padding */
+}
+
+/* Style for the main image under the heading */
+.about-main-image {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Style for the main heading on the About Us page */
+.about-page-section h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    color: #000;
+}
+
+/* Style for subheadings within the about section */
+.about-page-section h3 {
+    font-size: 1.6rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #000;
+    text-align: center;
+}
+
+/* Style for paragraphs within the about section */
+.about-page-section p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    color: #333;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Style for standard lists within the about section */
+.about-page-section ul {
+    list-style: disc;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+    padding-left: 1.5rem;
+    color: #333;
+}
+
+.about-page-section ul li {
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    color: inherit;
+}
+
+
+/* ========== SERVICES SECTION ========== */
+/* .services-section uses .section-padding utility */
+.services-section {
+    /* background: #f9f9f9; */
+}
+
+.services-header { text-align: center; margin-bottom: 3rem; }
+.services-header .services-heading { font-size: 2.2rem; margin-bottom: 1rem; color: #000; font-weight: 700; }
+.services-header .services-subtitle { font-size: 1.1rem; color: #333; max-width: 700px; margin: 0 auto 1.5rem auto; }
+.service-card { background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); text-align: center; }
+.service-icon { width: 80px; height: 80px; margin-bottom: 1rem; display: inline-block; }
+.service-card .service-cta { display: inline-block; margin-top: 1.5rem; padding: 10px 20px; background: var(--brand); color: #000; text-decoration: none; border-radius: 25px; font-weight: 600; transition: all 0.3s ease; }
+.service-card .service-cta:hover { background: var(--dark-brand); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(67,237,255,0.3); }
+
+
+/* ========== PORTFOLIO SECTION (SLIDER) ========== */
+.portfolio {
+    padding: 4rem 1rem; /* Added padding back as per user's working structure */
+    background: #f9f9f9;
+    margin-bottom: 4rem; /* Add space below the section */
+}
+
+.portfolio-header { text-align: center; margin-bottom: 2rem; }
+.portfolio-header h2 { font-size: 2.2rem; margin-bottom: 1rem; color: #000; font-weight: 700; }
+.portfolio-header p { font-size: 1.1rem; color: #333; max-width: 700px; margin: 0 auto 2rem auto; }
+.slider-container { max-width: 1200px; margin: 0 auto; position: relative; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+.slider { display: flex; transition: transform 0.5s ease; }
+.slide { flex: 0 0 100%; width: 100%; position: relative; box-sizing: border-box; } /* More robust flex */
+.slider-image { width: 100%; height: 600px; object-fit: cover; object-position: center; display: block; }
+.view-project { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); background: var(--brand); color: #000; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; border: 2px solid var(--brand); box-shadow: 0 4px 15px rgba(0,0,0,0.2); font-size: 1.1rem; z-index: 5; }
+.view-project:hover { background: var(--dark-brand); border-color: var(--dark-brand); transform: translateX(-50%) scale(1.05); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+.slider-nav { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 10; }
+.dot { width: 12px; height: 12px; background: rgba(255,255,255,0.5); border-radius: 50%; cursor: pointer; transition: all 0.3s ease; }
+.dot.active { background: var(--brand); transform: scale(1.3); }
+.slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; padding: 1rem; cursor: pointer; z-index: 10; transition: 0.3s ease; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; user-select: none; border: none; }
+.slider-arrow:hover { background: rgba(0,0,0,0.8); transform: translateY(-50%) scale(1.1); }
+.arrow-left { left: 20px; }
+.arrow-right { right: 20px; }
+
+
+/* ========== BLOG HEADER/HEADING ========== */
+.blog-heading { text-align: center; padding: 2rem 0; background: #f8f9fa; }
+.blog-heading h1 { font-size: 2.5rem; font-weight: 700; color: #000; margin: 0; }
+
+/* ========== BLOG CONTENT & VIDEO ========== */
+.blog-container { max-width: 800px; margin: 0 auto; padding: 0 1rem; } /* Added padding */
+.blog-post { margin: 3rem 0; text-align: center; }
+.post-date { color: #000; font-size: 1.1rem; display: block; margin-bottom: 0.5rem; }
+.blog-post h2 { color: #000; font-size: 1.8rem; margin-bottom: 1rem; }
+.post-content { /* Optional: Add flex or grid for content layout if needed */ }
+.post-image { width: 100%; max-width: 600px; height: auto; border-radius: 8px; margin: 1rem auto; display: block; }
+.post-excerpt { color: #333; margin: 1.5rem 0; line-height: 1.6; }
+/* .blog-button {} - Removed these styles as we are using .btn.btn-primary now */
+
+.video-section { margin: 4rem 0; text-align: center; }
+.video-header h2 { color: #000; font-size: 2rem; margin-bottom: 2rem; }
+.video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 1000px; margin: 0 auto; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+.video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+
+/* ========== TESTIMONIALS ========== */
+.testimonial-card { background: #fff; padding: 2rem; border-radius: 8px; margin: 1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.08); text-align: left; }
+blockquote { font-style: italic; margin-bottom: 1rem; margin-left: 0; margin-right: 0; }
+cite { font-weight: 600; color: var(--dark-brand); display: block; margin-top: 0.5rem; }
+.section-title { text-align: center; margin-bottom: 2rem; font-size: 2rem; color: #000; }
+
+
+/* ========== CTA SECTION ========== */
+.cta-box { max-width: 700px; margin: 0 auto; text-align: center; padding: 2rem; background: #fff; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+.cta-box h2 { margin-bottom: 1rem; }
+.cta-box p { margin-bottom: 1.5rem; }
+.cta-form { display: flex; flex-direction: column; align-items: center; gap: 1rem; max-width: 400px; margin: 0 auto; }
+.cta-form input[type="tel"] { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+.cta-form button.btn { width: 100%; max-width: 250px; }
+
+
+/* ========== CONTACT SECTION ========== */
+.contact-section { padding: 4rem 1rem; text-align: center; }
+.contact-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: start; }
+.contact-form { max-width: 600px; margin: 0 auto; padding: 2rem; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+.form-group { margin-bottom: 1.5rem; text-align: left; }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 2px solid var(--brand); border-radius: 8px; margin-top: 0.5rem; display: block; box-sizing: border-box; }
+.contact-info { max-width: 600px; margin: 0 auto; padding: 2rem; }
+.info-card { background: var(--brand); border-radius: 12px; padding: 2rem; color: #000; }
+.contact-methods { display: flex; flex-direction: column; gap: 1rem; margin: 2rem 0; list-style: none; padding: 0; }
+.contact-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 12px 24px; border-radius: 30px; text-decoration: none; }
+.map-wrapper { position: relative; padding-bottom: 56.25%; height: 0; margin: 2rem auto; max-width: 1000px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+.map-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+
+/* ========== FOOTER ========== */
+.main-footer {
+    background: #333;
+    color: #fff;
+    padding: 3rem 1rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-column h3 { color: #fff; margin-bottom: 1rem; }
+.footer-links ul { list-style: none; padding: 0; margin: 0; }
+.footer-links li { margin-bottom: 0.5rem; }
+.footer-links a { color: #fff; text-decoration: none; transition: color 0.3s ease; }
+.footer-links a:hover { color: var(--brand); }
+.footer-contact .footer-phone-link { color: var(--brand); text-decoration: none; font-weight: 600; transition: color 0.3s ease; }
+.footer-contact .footer-phone-link:hover { color: var(--dark-brand); text-decoration: underline; }
+.footer-bottom { text-align: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #555; color: #ccc; }
+
+
+/* Optional: Style to prevent background scroll when mobile menu is open */
+/* Add this outside the media query */
+/*
+body.no-scroll {
+    overflow: hidden;
+}
+*/
+
+/* Add base hamburger styles here (Hidden by default on desktop) */
+/* -> START New Hamburger Base Styles <- */
+.hamburger {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001; /* Ensure it's above the mobile menu overlay */
+}
+
+.hamburger-icon {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #000; /* Color of the lines */
+    margin: 5px 0; /* Space between lines */
+    transition: all 0.3s ease;
+}
+
+/* Optional: Animation for the hamburger icon when active */
+.hamburger.is-active .hamburger-icon:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.is-active .hamburger-icon:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.is-active .hamburger-icon:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+/* -> END New Hamburger Base Styles <- */
+
+
+/* ========== MEDIA QUERIES (Mobile Styles) ========== */
+/* -> START Existing Media Query Block <- */
+@media (max-width: 768px) {
+    /* --- START Corrected Mobile Navigation Styles (Inside Media Query) --- */
+    /* Navigation Mobile Layout Adjustments */
+    .main-nav {
+        padding: 0.8rem 1rem;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Hide the desktop menu container and show hamburger */
+    /* This container holds the menu and call button on desktop. On mobile, menu is overlay. */
+    /* Ensure it's displayed correctly alongside the logo and hamburger */
+    .nav-container {
+         display: flex;
+         flex-direction: row; /* Keep horizontal layout for call button */
+         align-items: center;
+         gap: 1rem;
+         /* The nav-menu display is handled by its own rule and --open class */
+     }
+
+    /* Mobile Menu (Hidden by default, positioned for sliding) */
+    .nav-menu {
+        display: none; /* Hides the menu initially */
+        position: fixed;
+        top: 0;
+        right: -100%; /* Starts off-screen */
+        width: 70%;
+        max-width: 300px;
+        height: 100%;
+        background: #fff;
+        flex-direction: column; /* Stack links vertically */
+        padding: 4rem 2rem; /* Space inside menu */
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        transition: right 0.3s ease; /* Animation */
+        z-index: 999; /* Layering */
+        gap: 1rem; /* Space between links */
+    }
+
+    /* Style for when the mobile menu is open (JS toggles this class) */
+    .nav-menu--open {
+        display: flex; /* Show the menu when open */
+        right: 0; /* Slide into view */
+    }
+
+    /* Style for mobile menu links */
+    .nav-menu .nav-link {
+        font-size: 1.2rem;
+        padding: 0.8rem 0;
+        border-bottom: 1px solid #eee; /* Separator */
+    }
+
+    .nav-menu .nav-link:last-child {
+        border-bottom: none;
+    }
+
+    /* Show hamburger icon on mobile */
+    .hamburger {
+        display: block; /* Show hamburger icon */
+    }
+
+    /* Make logo smaller on mobile */
+    .nav-logo img {
+        height: 50px; /* Smaller height */
+    }
+
+     /* Style the call button in the mobile header */
+     .nav-call {
+         padding: 0.4rem 0.8rem; /* Smaller padding */
+         font-size: 0.9rem;
+     }
+
+     .nav-call img {
+         width: 20px; /* Smaller icon */
+         height: 20px; /* Smaller icon */
+     }
+    /* --- END Corrected Mobile Navigation Styles (Inside Media Query) --- */
+
+
+    /* Utility */
+    .grid-2 { grid-template-columns: 1fr; }
+
+    /* Hero Mobile Adjustments */
+    .hero { height: 500px; }
+    .hero h1, .hero-content .hero-title { font-size: 2rem; }
+    .hero p, .hero-content .hero-subtitle { font-size: 1rem; margin-bottom: 1.5rem; }
+    .hero-cta { flex-direction: column; gap: 1rem; }
+    .hero-cta .btn { width: 80%; margin: 0 auto; }
+
+    /* Portfolio Slider Images Mobile Adjustments */
+    .slider-image { height: 400px; }
+    .view-project { padding: 10px 20px; font-size: 0.9rem; }
+    .slider-arrow { width: 30px; height: 30px; padding: 0.5rem; font-size: 1.2rem; }
+    .arrow-left { left: 10px; }
+    .arrow-right { right: 10px; }
+
+    /* Contact Section Mobile Adjustments */
+    .contact-container { grid-template-columns: 1fr; gap: 2rem; }
+    .contact-form, .contact-info { padding: 1.5rem; }
+    .map-wrapper { margin: 1.5rem auto; }
+
+    /* CTA Section Mobile Adjustments */
+    .cta-box { padding: 1.5rem; }
+    .cta-form input[type="tel"], .cta-form button.btn { max-width: 100%; }
+
+    /* Footer Mobile Adjustments */
+    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+    .footer-links ul { margin-bottom: 1rem; }
+}
+/* -> END Existing Media Query Block <- */
