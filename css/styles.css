@@ -8,10 +8,8 @@
 
 body {
     line-height: 1.6;
-    color: #000; /* Setting default text color to #000 based on overrides */
+    color: #000; 
     background: #fff;
-    /* Add this to prevent scrolling when mobile menu is open - needs JS toggling a class on body */
-    /* body.no-scroll { overflow: hidden; } */
 }
 
 /* ========== BRAND COLOR ACCENTS (VARIABLES) ========== */
@@ -26,9 +24,9 @@ body {
 
 /* Container for centering content */
 .container {
-    max-width: 1100px; /* Adjust max-width as needed for your design */
-    margin: 0 auto; /* Centers the container */
-    padding: 0 1rem; /* Adds padding on the sides */
+    max-width: 1100px;
+    margin: 0 auto; 
+    padding: 0 1rem;
 }
 
 .grid-2 {
@@ -46,26 +44,26 @@ body {
     top: 0;
     z-index: 1000;
     display: flex;
-    justify-content: space-between; /* Space between logo and nav-container/hamburger */
+    justify-content: space-between;
     align-items: center;
 }
 
 .nav-logo img {
-    height: 60px; /* Default desktop height */
+    height: 60px; 
     width: auto;
-    transition: transform 0.3s ease; /* Added transition */
+    transition: transform 0.3s ease; 
 }
 
-/* Desktop: Ensure nav-menu and nav-call are displayed horizontally */
+
 .nav-container {
     display: flex;
     align-items: center;
-    gap: 2rem; /* Space between menu and call button */
+    gap: 2rem; 
 }
 
 .nav-menu {
-    display: flex; /* Show on desktop */
-    gap: 2rem; /* Space between menu items */
+    display: flex;
+    gap: 2rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -82,15 +80,11 @@ body {
     color: var(--brand);
 }
 
-/* Added style for the active nav link */
+
 .nav-link--active {
     color: var(--brand);
-    /* Add underline or other active state styling if desired */
-    /* text-decoration: underline; */
 }
 
-
-/* Modified: Re-added flex properties for icon alignment */
 .nav-call {
     background: var(--brand);
     color: #333 !important;
@@ -107,28 +101,24 @@ body {
     background: var(--dark-brand);
 }
 
-
-/* Styles for the hamburger button (Hidden by default on desktop) */
-/* -> START New Hamburger Base Styles <- */
 .hamburger {
-    display: none; /* Hidden on desktop */
+    display: none;
     background: none;
     border: none;
     cursor: pointer;
     padding: 10px;
-    z-index: 1001; /* Ensure it's above the mobile menu overlay */
+    z-index: 1001;
 }
 
 .hamburger-icon {
     display: block;
     width: 25px;
     height: 3px;
-    background-color: #000; /* Color of the lines */
-    margin: 5px 0; /* Space between lines */
+    background-color: #000;
+    margin: 5px 0;
     transition: all 0.3s ease;
 }
 
-/* Optional: Animation for the hamburger icon when active */
 .hamburger.is-active .hamburger-icon:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
 }
@@ -143,7 +133,7 @@ body {
 /* -> END New Hamburger Base Styles <- */
 
 
-/* ========== BUTTON STYLES (Corrected) ========== */
+/* ========== BUTTON STYLES  ========== */
 .btn {
     display: inline-block;
     padding: 12px 24px;
@@ -157,9 +147,9 @@ body {
 }
 
 .btn-primary {
-    /* -> Corrected: Added background and color <- */
+ 
     background: var(--brand);
-    color: #000; /* You might want this to be #fff depending on your design */
+    color: #000;
     border: 2px solid var(--brand);
 }
 
@@ -168,27 +158,22 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(67,237,255,0.3);
 }
-/* -> END BUTTON STYLES (Corrected) <- */
-
-
-/* The rest of the desktop styles are here */
-/* ... (Hero, About Index, About Us Page, Services, Portfolio, Blog, Video, Testimonials, CTA, Contact, Footer) ... */
+/* -> END BUTTON STYLES <- */
 
 /* ========== HERO SECTION (Static Image) ========== */
-/* Styles for the hero header with parallax effect */
 .hero {
     position: relative;
     height: 600px;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
                 url("../images/hero-bg-1.jpg") center/cover;
-    background-attachment: fixed; /* Property for parallax effect */
+    background-attachment: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 20px;
     color: #fff;
-    /* Keep any other existing styles for .hero that you had */
+
 }
 
 .hero-content {
@@ -231,22 +216,21 @@ body {
 /* ========== ABOUT SECTION (Index Page) ========== */
 /* Styles for the About section on the Index page */
 .about-section {
-    /* Ensure this section has top/bottom padding, potentially using section-padding */
+  
 }
 
 .about-content h2 { font-size: 2rem; margin-bottom: 1.5rem; }
-/* Note: .about-content p styles might need to be added here if they were removed */
-/* Styles for the .certifications list (used on Index About and About Us Page) */
+
 .certifications { margin: 1.5rem auto; list-style: none; padding: 0; max-width: 800px; }
 .certifications li { margin: 0.8rem 0; padding-left: 1.5rem; position: relative; font-size: 1.1rem; color: #333; }
 .certifications li::before { content: "✓"; position: absolute; left: 0; color: var(--brand); }
-/* Note: .about-image may need responsive adjustments within grid in media query if not already handled */
+
 
 
 /* ========== ABOUT US PAGE SPECIFIC STYLES ========== */
-/* Styles for the About Us page (single column layout) */
+
 .about-page-section {
-    /* Ensure this section has top/bottom padding, potentially using section-padding */
+ 
 }
 
 /* Style for the main image under the heading */
@@ -307,9 +291,9 @@ body {
 
 
 /* ========== SERVICES SECTION ========== */
-/* .services-section uses .section-padding utility */
+
 .services-section {
-    /* background: #f9f9f9; */
+  
 }
 
 .services-header { text-align: center; margin-bottom: 3rem; }
@@ -323,9 +307,9 @@ body {
 
 /* ========== PORTFOLIO SECTION (SLIDER) ========== */
 .portfolio {
-    padding: 4rem 1rem; /* Added padding back as per user's working structure */
+    padding: 4rem 1rem; 
     background: #f9f9f9;
-    margin-bottom: 4rem; /* Add space below the section */
+    margin-bottom: 4rem; 
 }
 
 .portfolio-header { text-align: center; margin-bottom: 2rem; }
@@ -351,15 +335,14 @@ body {
 .blog-heading h1 { font-size: 2.5rem; font-weight: 700; color: #000; margin: 0; }
 
 /* ========== BLOG CONTENT & VIDEO ========== */
-.blog-container { max-width: 800px; margin: 0 auto; padding: 0 1rem; } /* Added padding */
+.blog-container { max-width: 800px; margin: 0 auto; padding: 0 1rem; } 
 .blog-post { margin: 3rem 0; text-align: center; }
 .post-date { color: #000; font-size: 1.1rem; display: block; margin-bottom: 0.5rem; }
 .blog-post h2 { color: #000; font-size: 1.8rem; margin-bottom: 1rem; }
-.post-content { /* Optional: Add flex or grid for content layout if needed */ }
+.post-content {}
 .post-image { width: 100%; max-width: 600px; height: auto; border-radius: 8px; margin: 1rem auto; display: block; }
 .post-excerpt { color: #333; margin: 1.5rem 0; line-height: 1.6; }
 /* .blog-button {} - Removed these styles as we are using .btn.btn-primary now */
-
 .video-section { margin: 4rem 0; text-align: center; }
 .video-header h2 { color: #000; font-size: 2rem; margin-bottom: 2rem; }
 .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 1000px; margin: 0 auto; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
@@ -421,23 +404,13 @@ cite { font-weight: 600; color: var(--dark-brand); display: block; margin-top: 0
 .footer-bottom { text-align: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #555; color: #ccc; }
 
 
-/* Optional: Style to prevent background scroll when mobile menu is open */
-/* Add this outside the media query */
-/*
-body.no-scroll {
-    overflow: hidden;
-}
-*/
-
-/* Add base hamburger styles here (Hidden by default on desktop) */
-/* -> START New Hamburger Base Styles <- */
 .hamburger {
-    display: none; /* Hidden on desktop */
+    display: none; 
     background: none;
     border: none;
     cursor: pointer;
     padding: 10px;
-    z-index: 1001; /* Ensure it's above the mobile menu overlay */
+    z-index: 1001; 
 }
 
 .hamburger-icon {
@@ -449,7 +422,7 @@ body.no-scroll {
     transition: all 0.3s ease;
 }
 
-/* Optional: Animation for the hamburger icon when active */
+
 .hamburger.is-active .hamburger-icon:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
 }
@@ -461,90 +434,84 @@ body.no-scroll {
 .hamburger.is-active .hamburger-icon:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
 }
-/* -> END New Hamburger Base Styles <- */
+
 
 
 /* ========== MEDIA QUERIES (Mobile Styles) ========== */
-/* -> START Existing Media Query Block <- */
+
 @media (max-width: 768px) {
-    /* --- START Corrected Mobile Navigation Styles (Inside Media Query) --- */
-    /* Navigation Mobile Layout Adjustments */
+
     .main-nav {
         padding: 0.8rem 1rem;
         justify-content: space-between;
         align-items: center;
     }
 
-    /* Hide the desktop menu container and show hamburger */
-    /* This container holds the menu and call button on desktop. On mobile, menu is overlay. */
-    /* Ensure it's displayed correctly alongside the logo and hamburger */
     .nav-container {
          display: flex;
-         flex-direction: row; /* Keep horizontal layout for call button */
+         flex-direction: row; 
          align-items: center;
          gap: 1rem;
-         /* The nav-menu display is handled by its own rule and --open class */
+     
      }
 
-    /* Mobile Menu (Hidden by default, positioned for sliding) */
+   
     .nav-menu {
-        display: none; /* Hides the menu initially */
+        display: none;
         position: fixed;
         top: 0;
-        right: -100%; /* Starts off-screen */
+        right: -100%; 
         width: 70%;
         max-width: 300px;
         height: 100%;
         background: #fff;
-        flex-direction: column; /* Stack links vertically */
-        padding: 4rem 2rem; /* Space inside menu */
+        flex-direction: column; 
+        padding: 4rem 2rem; 
         box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-        transition: right 0.3s ease; /* Animation */
-        z-index: 999; /* Layering */
-        gap: 1rem; /* Space between links */
+        transition: right 0.3s ease;
+        z-index: 999;
+        gap: 1rem;
     }
 
-    /* Style for when the mobile menu is open (JS toggles this class) */
+
     .nav-menu--open {
-        display: flex; /* Show the menu when open */
-        right: 0; /* Slide into view */
+        display: flex; 
+        right: 0;
     }
 
     /* Style for mobile menu links */
     .nav-menu .nav-link {
         font-size: 1.2rem;
         padding: 0.8rem 0;
-        border-bottom: 1px solid #eee; /* Separator */
+        border-bottom: 1px solid #eee; 
     }
 
     .nav-menu .nav-link:last-child {
         border-bottom: none;
     }
 
-    /* Show hamburger icon on mobile */
+
     .hamburger {
-        display: block; /* Show hamburger icon */
+        display: block; 
     }
 
-    /* Make logo smaller on mobile */
+  
     .nav-logo img {
-        height: 50px; /* Smaller height */
+        height: 50px;
     }
 
      /* Style the call button in the mobile header */
      .nav-call {
-         padding: 0.4rem 0.8rem; /* Smaller padding */
+         padding: 0.4rem 0.8rem; 
          font-size: 0.9rem;
      }
 
      .nav-call img {
-         width: 20px; /* Smaller icon */
-         height: 20px; /* Smaller icon */
+         width: 20px; 
+         height: 20px; 
      }
-    /* --- END Corrected Mobile Navigation Styles (Inside Media Query) --- */
 
 
-    /* Utility */
     .grid-2 { grid-template-columns: 1fr; }
 
     /* Hero Mobile Adjustments */
@@ -574,4 +541,4 @@ body.no-scroll {
     .footer-grid { grid-template-columns: 1fr; text-align: center; }
     .footer-links ul { margin-bottom: 1rem; }
 }
-/* -> END Existing Media Query Block <- */
+
