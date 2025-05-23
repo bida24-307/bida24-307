@@ -24,7 +24,7 @@
 
     let currentSlide = 0;
     let autoSlideInterval;
-    const intervalTime = 3500; // 3.5 seconds
+    const intervalTime = 3500; 
 
     function showSlide(n) {
         clearInterval(autoSlideInterval);
